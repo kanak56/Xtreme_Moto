@@ -1,45 +1,51 @@
 import React, { useState } from 'react';
-
 import logobanner from "./../../Asset/loginBanner.png";
 import TextField from '@mui/material/TextField';
 import { Button, Container, Grid, Typography } from '@mui/material';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
-import useAuth from '../../hokks/useAuth';
-import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
+import { NavLink, useHistory } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
+import useAuth from '../../hokks/useAuth';
 
-const Login = () => {
+
+const Register = () => {
+
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, isLoading, authError } = useAuth();
-    const location = useLocation();
+    const { user, registerUser, isLoading, authError } = useAuth();
     const history = useHistory();
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
-        console.log(newLoginData);
         setLoginData(newLoginData);
     }
 
     const handleLoginSubmit = e => {
-        loginUser(loginData.email, loginData.password, location, history);
+        if (loginData.password !== loginData.password2) {
+            alert('Password did not match');
+        }
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
+
     }
     return (
         <Container>
             <Grid container spacing={2}>
-                <Grid sx={{ mt: 12 }} items xs={12} md={6}>
-
-                    <img style={{ width: "100%" }} src={logobanner} alt=''></img>
-
-                </Grid>
                 <Grid sx={{ mt: 10 }} items xs={12} md={6}>
-                    <Typography variant="h6" sx={{ mt: 5 }}>
-                        Please Login
+                    <Typography variant="h6" sx={{ mt: 5 }} gutterBottom>
+                        Please Register
                     </Typography>
 
                     {!isLoading && <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                            sx={{ width: '75%', m: 1 }}
+                            id="standard-basic"
+                            label="User Name"
+                            name="name"
+                            onChange={handleOnChange}
+                            type='username'
+                            variant="standard" />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
                             id="standard-basic"
@@ -48,7 +54,6 @@ const Login = () => {
                             onChange={handleOnChange}
                             type='emial'
                             variant="standard" />
-
                         <TextField
                             sx={{ width: '75%', m: 1 }} id="standard-basic"
                             label="Your Password"
@@ -56,18 +61,30 @@ const Login = () => {
                             onChange={handleOnChange}
                             type='password'
                             variant="standard" />
-                        <Button sx={{ width: '75%', m: 3 }} variant='contained' type="submit">Login</Button>
-                    </form>}
+                        <TextField
+                            sx={{ width: '75%', m: 1 }} id="standard-basic"
+                            label="Confirm Password"
+                            name='password2'
+                            onChange={handleOnChange}
+                            type='password'
+                            variant="standard" />
 
+
+                        <Button sx={{ width: '75%', m: 3 }} variant='contained' type="submit">Register</Button>
+                    </form>}
                     {isLoading && < CircularProgress />}
                     {user?.email && <Alert variant="filled" severity="success">
-                        Successfully Loged in
+                        User Created Successfully
                     </Alert>}
                     {authError && <Alert variant="filled" severity="error">
                         {authError}
                     </Alert>}
+                    <NavLink style={{ textDecoration: 'none' }} to="/login"><Button sx={{ m: 3 }} variant='text'>Already Registered? Please Login</Button></NavLink>
+                </Grid>
+                <Grid items xs={12} md={6}>
 
-                    <NavLink style={{ textDecoration: 'none' }} to="/register"><Button sx={{ m: 3 }} variant='text'>New User? Please Register</Button></NavLink>
+                    <img style={{ height: '100%', width: "100%" }} src={logobanner} alt=''></img>
+
                 </Grid>
             </Grid>
 
@@ -75,4 +92,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

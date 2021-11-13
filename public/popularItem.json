@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "TARO GP-1 V3",
+        "img": "https://ic1.maxabout.us/autos/tw_india//T/2020/6/taro-gp1-250r-rear-3-quarter-view.jpg",
+        "details": {
+            "engine": "150cc",
+            "catagory": "Sports Bike",
+            "pA": "Available",
+            "Gears": "6",
+            "cmRatio": "10.7:1",
+            "ec": "Liquid Cooled",
+            "fi": "EFI",
+            "mp": "19 Bhp @ 9500 RPM",
+            "mt": "16.5 Nm @ 9000 RPM",
+            "tc": "13.5L",
+            "Braking": "Dual Channel ABS"
+        },
+        "price": "356000",
+        "website": "tarogp1.com"
+    },
+    {
+        "id": 2,
+        "name": "Taro GP 1 Naked",
+        "img": "https://deshibiker.com/wp-content/uploads/2019/01/Taro-GP-1-Naked-Sport.jpg",
+        "details": {
+            "engine": "149.9cc",
+            "catagory": "Naked Sports Bike",
+            "pA": "Not Available",
+            "Gears": "6",
+            "cmRatio": "10.7:1",
+            "ec": "Liquid Cooled",
+            "fi": "Carburetor",
+            "mp": "16 bhp @ 8500 RPM",
+            "mt": "14.5 Nm @ 7000 rpm",
+            "tc": "13.5L",
+            "Braking": "Dual Channel ABS"
+        },
+        "price": "299000",
+        "website": "tarogp1.com"
+    },
+    {
+        "id": 3,
+        "name": "Lifan KPT 150",
+        "img": "https://1.bp.blogspot.com/-mOs3gzEt0bI/YNyYr25qVQI/AAAAAAAAAyk/Ztbjqwa7ChIyrHyomzJ64yce77AOf7lxQCLcBGAsYHQ/s922/preview%2B%25285%2529.jpg",
+        "details": {
+            "engine": "150cc",
+            "catagory": "Adventure Sports",
+            "pA": "Available",
+            "Gears": "6",
+            "cmRatio": "10.7:1",
+            "ec": "Liquid Cooled",
+            "fi": "EFI",
+            "mp": "16.8 BHP @ 8000 RPM",
+            "mt": "14 Nm @ 6500 rpm",
+            "tc": "14L",
+            "Braking": "Dual Channel ABS"
+        },
+        "price": "260000",
+        "website": "lifankpt.com"
+    }
+]

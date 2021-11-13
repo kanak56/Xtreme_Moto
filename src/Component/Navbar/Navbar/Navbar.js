@@ -7,15 +7,18 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
+import xtremeLogo from './../../../Asset/xtremeMotoZone.png'
+import CabinIcon from '@mui/icons-material/Cabin';
 
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import './Navbar.css';
-import userEvent from '@testing-library/user-event';
+import useAuth from '../../../hokks/useAuth';
+
 
 const Navbar = (props) => {
     // const [user, setUser] = useState();
-
+    const { user, logOut } = useAuth();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -53,16 +56,17 @@ const Navbar = (props) => {
                                 'aria-labelledby': 'basic-button',
                             }}
                         >
-                            <MenuItem ><NavLink to='/' style={{ textDecoration: 'none', color: 'black' }} ><Button color='inherit'>Home</Button></NavLink></MenuItem>
-                            <MenuItem ><NavLink to='/popularItems' style={{ textDecoration: 'none', color: 'black' }} ><Button color='inherit'>Popular Items</Button></NavLink></MenuItem>
-                            <MenuItem ><NavLink to='/services' style={{ textDecoration: 'none', color: 'black' }} ><Button color='inherit'>Services</Button></NavLink></MenuItem>
-                            <MenuItem >  <NavLink to='/about' style={{ textDecoration: 'none', color: 'black' }} ><Button color='inherit'>About</Button></NavLink></MenuItem>
-                            < MenuItem > <NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }} ><Button color='inherit'>Login</Button></NavLink></MenuItem>
-                            <MenuItem > <NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }} ><Button color='inherit'>Log Out</Button></NavLink></MenuItem>
+                            <MenuItem ><NavLink to='/' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'><CabinIcon style={{ paddingRight: '5px', paddingBottom: '5px' }} /> Home  </Button></NavLink></MenuItem>
+                            <MenuItem ><NavLink to='/popularItems' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>All Products</Button></NavLink></MenuItem>
+                            <MenuItem >  <NavLink to='/about' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>About</Button></NavLink></MenuItem>
+                            {
+                                user?.email ? <MenuItem > <Button onClick={logOut} style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>Log Out</Button></MenuItem> :
+                                    < MenuItem > <NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>Login</Button></NavLink></MenuItem>
+                            }
                         </Menu>
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Xtreme Moto Zone
+                        <img src={xtremeLogo}></img> Moto Zone
                     </Typography>
 
 
