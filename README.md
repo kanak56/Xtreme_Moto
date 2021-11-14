@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Welcome To Xtreme Moto Zone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Xtreme Moto Zone
 
