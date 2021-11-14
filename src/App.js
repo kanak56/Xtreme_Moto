@@ -46,6 +46,9 @@ function App() {
             <PrivateRoute path="/popularItems">
               <PopularItems />
             </PrivateRoute>
+            <PrivateRoute path="/placeOrder">
+              <PlaceOrder />
+            </PrivateRoute>
             <Route path="/contactUs">
               <ContactUs />
             </Route>

@@ -60,10 +60,11 @@ const Review = () => {
                         type='text'
                         onBlur={handleOnBlur}
                     />
+
                     < Button onClick={handleAddReview} sx={{ width: '50%', m: 3 }} variant='contained' type="submit">Submit</Button>
                 </form>
             </Box>
-        </div>
+        </div >
     );
 };
 
