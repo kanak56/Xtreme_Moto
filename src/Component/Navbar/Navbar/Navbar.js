@@ -14,6 +14,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import './Navbar.css';
 import useAuth from '../../../hokks/useAuth';
+import { HashLink } from 'react-router-hash-link';
 
 
 const Navbar = (props) => {
@@ -28,7 +29,8 @@ const Navbar = (props) => {
         setAnchorEl(null);
     };
     return (
-        <Box sx={{ flexGrow: 1 }}>
+
+        <Box className='navbar' sx={{ flexGrow: 1 }} >
             <AppBar position="static">
                 <Toolbar>
                     <IconButton
@@ -58,7 +60,13 @@ const Navbar = (props) => {
                         >
                             <MenuItem ><NavLink to='/' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'><CabinIcon style={{ paddingRight: '5px', paddingBottom: '5px' }} /> Home  </Button></NavLink></MenuItem>
                             <MenuItem ><NavLink to='/popularItems' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>All Products</Button></NavLink></MenuItem>
-                            <MenuItem >  <NavLink to='/about' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>About</Button></NavLink></MenuItem>
+                            <MenuItem >  <HashLink to='/about' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>About Us</Button></HashLink></MenuItem>
+                            {
+                                user?.email && <MenuItem >  <HashLink to='/inventory' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'> Inventory</Button></HashLink></MenuItem>
+                            }
+                            {
+                                user?.admin && <MenuItem >  <HashLink to='/manageInventory' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>Manage Inventory</Button></HashLink></MenuItem>
+                            }
                             {
                                 user?.email ? <MenuItem > <Button onClick={logOut} style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>Log Out</Button></MenuItem> :
                                     < MenuItem > <NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }} ><Button style={{ width: '140px', backgroundColor: 'skyblue', color: 'white' }} color='inherit'>Login</Button></NavLink></MenuItem>
@@ -73,6 +81,7 @@ const Navbar = (props) => {
                 </Toolbar>
             </AppBar>
         </Box >
+
     );
 };
 

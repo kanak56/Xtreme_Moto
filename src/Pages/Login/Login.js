@@ -7,6 +7,7 @@ import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hokks/useAuth';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
+import Footer from '../Footer/Footer';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
@@ -70,7 +71,6 @@ const Login = () => {
                     <NavLink style={{ textDecoration: 'none' }} to="/register"><Button sx={{ m: 3 }} variant='text'>New User? Please Register</Button></NavLink>
                 </Grid>
             </Grid>
-
         </Container>
     );
 };

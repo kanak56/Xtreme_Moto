@@ -6,8 +6,10 @@ import Fade from '@mui/material/Fade';
 import TextField from '@mui/material/TextField';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hokks/useAuth';
+import { HashLink } from 'react-router-hash-link';
+
 
 const style = {
     position: 'absolute',
@@ -20,6 +22,7 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
+
 const PlaceOrderItems = ({ handleOpenOrder, handleCloseOrder, product }) => {
     const { name, price } = product;
     const { user, isLoading } = useAuth();
@@ -33,21 +36,46 @@ const PlaceOrderItems = ({ handleOpenOrder, handleCloseOrder, product }) => {
         const value = e.target.value;
         const newOrderData = { ...orderData };
         newOrderData[field] = value;
-        console.log(newOrderData);
         setOrderData(newOrderData);
     }
     const handleOrderPlace = e => {
-        // collect data
+
         const orders = {
             ...orderData,
-
+            name: user.displayName,
+            email: user.email,
+            productName: name,
+            price: price
         }
+        console.log(orders);
+
         // send to server
+        // axios.post('https://obscure-refuge-13960.herokuapp.com/orders', orders)
+        //     .then(res => res.json())
+        fetch("https://obscure-refuge-13960.herokuapp.com/orders", {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orders)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('Order Success')
+                    handleCloseOrder();
+                }
+                else {
+                    alert("failed to order")
+                    handleCloseOrder();
+                }
+            })
 
         e.preventDefault();
 
     }
     return (
+
         <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
@@ -107,14 +135,20 @@ const PlaceOrderItems = ({ handleOpenOrder, handleCloseOrder, product }) => {
                             variant="standard" />
 
 
-                        <NavLink to='/placeOrder' style={{ textDecoration: 'none' }}>
-                            <Button sx={{ width: '80%', m: 3 }} variant='contained' type="submit">Place Order</Button>
-                        </NavLink>
+
+
+                        {
+                            user.email ? < Button onClick={handleOrderPlace} sx={{ width: '80%', m: 3 }} variant='contained' type="submit">Place Order</Button> :
+                                <NavLink to='/login'>
+                                    <Button>Please Login</Button>
+                                </NavLink>}
                     </form>}
                     {isLoading && < CircularProgress />}
                 </Box>
             </Fade>
-        </Modal>
+        </Modal >
+
+
     );
 };
 

@@ -1,10 +1,12 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+
 import { Card, Col } from 'react-bootstrap';
 import { Button, Typography } from '@mui/material';
 import ProductDetails from '../ProductDetails/ProductDetails';
-import PlaceOrder from '../../../Component/PlaceOrder/PlaceOrder.js';
+
 import PlaceOrderItems from '../PlaceOrderItems/PlaceOrderItems';
+
+
 
 const TabPannel = (props) => {
     const { name, img, price } = props.product;
@@ -27,9 +29,9 @@ const TabPannel = (props) => {
                         <Card.Text>
                             <Button onClick={handleOpen} variant='h6'>See Product Details</Button>
                         </Card.Text>
-                        <Card.Text>
-                            <Button onClick={handleOpenOrder} variant='h6'>Order Now</Button>
-                        </Card.Text>
+
+
+                        <Button onClick={handleOpenOrder} variant='h6'>Order Now</Button>
                     </Card.Body>
                 </Card>
             </Col>
@@ -39,12 +41,16 @@ const TabPannel = (props) => {
                 handleClose={handleClose}
                 open={open}
             ></ProductDetails>
+
             <PlaceOrderItems
                 key={props.product.id}
                 product={props.product}
                 handleOpenOrder={orderOpen}
                 handleCloseOrder={handleCloseOrder}
             ></PlaceOrderItems>
+
+
+
 
         </>
 

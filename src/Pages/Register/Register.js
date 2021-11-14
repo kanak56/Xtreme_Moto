@@ -32,7 +32,7 @@ const Register = () => {
     return (
         <Container>
             <Grid container spacing={2}>
-                <Grid sx={{ mt: 10 }} items xs={12} md={6}>
+                <Grid sx={{ mt: 5 }} items xs={12} md={6}>
                     <Typography variant="h6" sx={{ mt: 5 }} gutterBottom>
                         Please Register
                     </Typography>

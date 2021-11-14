@@ -18,6 +18,9 @@ import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import PlaceOrder from './Component/PlaceOrder/PlaceOrder.js';
 import ProductDetails from './Pages/PopularItems/ProductDetails/ProductDetails';
+import Inventory from './Component/Inventory/Inventory';
+
+
 
 
 
@@ -26,7 +29,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          <Navbar />
+
           <Switch>
             <Route exact path="/">
               <Home />
@@ -37,12 +40,12 @@ function App() {
             <Route path="/productDetails">
               <ProductDetails />
             </Route>
-            <PrivateRoute path="/placeOrder">
-              <PlaceOrder />
+            <PrivateRoute path="/inventory">
+              <Inventory />
             </PrivateRoute>
-            <Route path="/popularItems">
+            <PrivateRoute path="/popularItems">
               <PopularItems />
-            </Route>
+            </PrivateRoute>
             <Route path="/contactUs">
               <ContactUs />
             </Route>
@@ -54,7 +57,7 @@ function App() {
             </Route>
             <Redirect to='/' />
           </Switch>
-          <Footer />
+
         </Router >
       </AuthProvider>
     </div >
