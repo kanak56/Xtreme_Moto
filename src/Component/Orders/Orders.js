@@ -21,7 +21,8 @@ const Orders = () => {
     }, []);
     const handleDeleteOrder = id => {
         window.confirm('Are your sre sure want to delete');
-        if (window.confirm === true) {
+
+        if (window.confirm() === true) {
             const url = `https://obscure-refuge-13960.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: "DELETE"

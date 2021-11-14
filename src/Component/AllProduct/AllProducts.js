@@ -12,21 +12,24 @@ const AllProducts = () => {
 
     }, []);
     const handleDelete = id => {
-
-        const url = `https://obscure-refuge-13960.herokuapp.com/products/${id}`;
-        fetch(url, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    alert('Deleted Successfully');
-                    const remainingUsers = products.filter(order => order._id !== id);
-                    setProducts(remainingUsers);
-                }
+        window.confirm('Are your sre sure want to delete');
+        if (window.confirm() === true) {
+            const url = `https://obscure-refuge-13960.herokuapp.com/products/${id}`;
+            fetch(url, {
+                method: "DELETE"
             })
-
-
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('Deleted Successfully');
+                        const remainingUsers = products.filter(order => order._id !== id);
+                        setProducts(remainingUsers);
+                    }
+                })
+        }
+        else {
+            alert('Try Again');
+        }
     }
     return (
         <div style={{ marginTop: '5%' }}>
