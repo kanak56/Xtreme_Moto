@@ -49,7 +49,7 @@ const AddItems = () => {
                 <TextField
                     sx={{ width: '50%', m: 1 }} id="standard-basic"
                     label='Bike Name'
-                    name='productName'
+                    name='name'
                     onBlur={handleOnBlur}
                     type='text'
                     variant="standard" />
@@ -70,7 +70,7 @@ const AddItems = () => {
                 <TextField
                     sx={{ width: '50%', m: 1 }} id="standard-basic"
                     label='Engine CC'
-                    name='Engine'
+                    name='engine'
                     onBlur={handleOnBlur}
                     type='text'
                     variant="standard" />
@@ -78,6 +78,41 @@ const AddItems = () => {
                     sx={{ width: '50%', m: 1 }} id="standard-basic"
                     label='Bike Catagory'
                     name='catagory'
+                    onBlur={handleOnBlur}
+                    type='text'
+                    variant="standard" />
+                <TextField
+                    sx={{ width: '50%', m: 1 }} id="standard-basic"
+                    label='Gears'
+                    name='Gears'
+                    onBlur={handleOnBlur}
+                    type='text'
+                    variant="standard" />
+                <TextField
+                    sx={{ width: '50%', m: 1 }} id="standard-basic"
+                    label='Compresion Ratio'
+                    name='cmRatio'
+                    onBlur={handleOnBlur}
+                    type='text'
+                    variant="standard" />
+                <TextField
+                    sx={{ width: '50%', m: 1 }} id="standard-basic"
+                    label='Cooling System'
+                    name='ec'
+                    onBlur={handleOnBlur}
+                    type='text'
+                    variant="standard" />
+                <TextField
+                    sx={{ width: '50%', m: 1 }} id="standard-basic"
+                    label='Max Power'
+                    name='mp'
+                    onBlur={handleOnBlur}
+                    type='text'
+                    variant="standard" />
+                <TextField
+                    sx={{ width: '50%', m: 1 }} id="standard-basic"
+                    label='Max Torque'
+                    name='mt'
                     onBlur={handleOnBlur}
                     type='text'
                     variant="standard" />

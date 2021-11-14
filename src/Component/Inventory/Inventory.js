@@ -24,6 +24,7 @@ import InventoryHome from './InventoryHome/InventoryHome';
 import AddItems from '../AddItems/AddItems';
 import useAuth from '../../hokks/useAuth';
 import AllUsers from './AllUsers/AllUsers';
+import AllProducts from '../AllProduct/AllProducts';
 
 const drawerWidth = 150;
 const Inventory = (props) => {
@@ -52,6 +53,9 @@ const Inventory = (props) => {
                         </NavLink>
                         <NavLink style={{ textDecoration: 'none' }} to={`${url}/addItems`}>
                             <ListItem><Button>Add Items</Button></ListItem>
+                        </NavLink>
+                        <NavLink style={{ textDecoration: 'none' }} to={`${url}/allProducts`}>
+                            <ListItem><Button>All Products</Button></ListItem>
                         </NavLink>
                         <NavLink style={{ textDecoration: 'none' }} to={`${url}/allUsers`}>
                             <ListItem><Button>User Lists</Button></ListItem>
@@ -143,6 +147,9 @@ const Inventory = (props) => {
                     </Route>
                     <Route path={`${path}/allUsers`}>
                         <AllUsers></AllUsers>
+                    </Route>
+                    <Route path={`${path}/allProducts`}>
+                        <AllProducts></AllProducts>
                     </Route>
                 </Switch>
 

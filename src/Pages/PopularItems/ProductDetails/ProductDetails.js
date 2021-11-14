@@ -18,7 +18,7 @@ const style = {
 };
 
 const ProductDetails = ({ open, handleClose, productInfo }) => {
-    const { name, price, details } = productInfo;
+    const { name, price, engine, catagory, mt, mp, ec, fi, Gears, tc } = productInfo;
     return (
         <Modal
             aria-labelledby="transition-modal-title"
@@ -40,28 +40,28 @@ const ProductDetails = ({ open, handleClose, productInfo }) => {
                         Price: {price}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Engine: {details.engine}
+                        Engine: {engine}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Catagory: {details.catagory}
+                        Catagory: {catagory}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Max Power: {details.mp}
+                        Max Power: {mp}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Max Torque: {details.mt}
+                        Max Torque: {mt}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Cooling System: {details.ec}
+                        Cooling System: {ec}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        FI: {details.fi}
+                        FI: {fi}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Gear Box: {details.Gears}
+                        Gear Box: {Gears}
                     </Typography>
                     <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Tank Capacity: {details.tc}
+                        Tank Capacity: {tc}
                     </Typography>
                 </Box>
             </Fade>
