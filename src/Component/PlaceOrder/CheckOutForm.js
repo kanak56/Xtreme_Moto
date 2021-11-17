@@ -12,7 +12,7 @@ const CheckOutForm = ({ order }) => {
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState('');
     useEffect(() => {
-        fetch('http://localhost:5000/paymentIntent', {
+        fetch('https://obscure-refuge-13960.herokuapp.com/paymentIntent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -76,7 +76,7 @@ const CheckOutForm = ({ order }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice(' secret')[0]
             }
-            const url = `http://localhost:5000/orders/${_id}`;
+            const url = `https://obscure-refuge-13960.herokuapp.com/orders/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
