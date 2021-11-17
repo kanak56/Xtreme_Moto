@@ -53,6 +53,8 @@ const Orders = () => {
                             <TableCell align="right">Price</TableCell>
                             <TableCell align="right">Email</TableCell>
                             <TableCell align="right">Mobile No.</TableCell>
+                            <TableCell align="right">Check Out</TableCell>
+                            <TableCell align="right">Delete Order</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -68,12 +70,19 @@ const Orders = () => {
                                 <TableCell align="right">{row.price}</TableCell>
                                 <TableCell align="right">{row.email}</TableCell>
                                 <TableCell align="right">{row.number}</TableCell>
-                                <Button onClick={() => handleDeleteOrder(row._id)}>Delete</Button>
+                                <TableCell align="right">
+
+                                    {row.payment ? 'Paid' : <NavLink style={{ textDecoration: 'none' }} to={`/inventory/orders/${row._id}`}><Button>Confirm Order</Button></NavLink>}
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Button onClick={() => handleDeleteOrder(row._id)}>Delete</Button>
+                                </TableCell>
+
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
-                <NavLink style={{ textDecoration: 'none' }} to='/placeOrder'><Button>Confirm Order</Button></NavLink>
+
             </TableContainer>
         </div>
     );

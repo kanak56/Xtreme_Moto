@@ -12,7 +12,7 @@ const BikeImportant = () => {
             }}
         >
             <Paper elevation={3}>
-                <img width='100%' src={'https://cdn.pixabay.com/photo/2017/07/17/07/05/bike-2511594_1280.jpg'} alt="" srcset="" />
+                <img width='100%' src={'https://cdn.pixabay.com/photo/2017/07/17/07/05/bike-2511594_1280.jpg'} alt="" srcSet="" />
             </Paper>
             <Paper elevation={3}>
                 <Typography sx={{ fontFamily: 'Lobster', fontSize: '20px' }} >

@@ -25,6 +25,8 @@ import AddItems from '../AddItems/AddItems';
 import useAuth from '../../hokks/useAuth';
 import AllUsers from './AllUsers/AllUsers';
 import AllProducts from '../AllProduct/AllProducts';
+import Orders from '../Orders/Orders';
+import PlaceOrder from '../PlaceOrder/PlaceOrder';
 
 const drawerWidth = 150;
 const Inventory = (props) => {
@@ -93,7 +95,7 @@ const Inventory = (props) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        <img src={xtremeLogo} alt="" srcset="" />
+                        <img src={xtremeLogo} alt="" srcSet="" />
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -138,6 +140,9 @@ const Inventory = (props) => {
                 <Switch>
                     <Route exact path={path}>
                         <InventoryHome></InventoryHome>
+                    </Route>
+                    <Route path={`${path}/orders/:id`}>
+                        <PlaceOrder></PlaceOrder>
                     </Route>
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
